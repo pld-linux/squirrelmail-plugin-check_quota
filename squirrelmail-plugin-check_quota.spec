@@ -1,7 +1,6 @@
 # TODO:
 # - check dir
 # - separate locales
-# - better pl description
 %define		_plugin	check_quota
 %define		mversion	1.2.7
 Summary:	Check Quota plugin for SquirrelMail
@@ -20,24 +19,32 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_plugindir	/home/services/httpd/html/squirrel/plugins/%{_plugin}
 
 %description
-This plugin includes the functionality of two plugins, which
-are Quota Usage plugin and Disk Quota plugin.
+This plugin includes the functionality of two plugins, which are Quota
+Usage plugin and Disk Quota plugin.
 
-It can retrieve the current quota usage from the IMAP
-server using the IMAP4 QUOTA extension.  It displays size-
-based quotas and/or message-count quotas, as given by the IMAP
-server. This function comes from Quota Usage plugin.
+It can retrieve the current quota usage from the IMAP server using
+the IMAP4 QUOTA extension. It displays size-based quotas and/or
+message-count quotas, as given by the IMAP server. This function comes
+from Quota Usage plugin.
 
-Also it can retrieve the current quota usage from UNIX quota
-command for UNIX-quota based systems. It displays size-based
-quotas and/or file-count quotas, as retreived from the quota
-command. This function comes from Disk Quota plugin.
+Also it can retrieve the current quota usage from UNIX quota command
+for UNIX-quota based systems. It displays size-based quotas and/or
+file-count quotas, as retreived from the quota command. This function
+comes from Disk Quota plugin.
 
 %description -l pl
-Wtyczka ³±czy funkcjonalno¶æ dwóch innych wtyczek - Quota Usage i Disk Quota.
+Wtyczka ³±czy funkcjonalno¶æ dwóch innych wtyczek - Quota Usage i Disk
+Quota.
 
-Mo¿esz pobraæ aktualne u¿ycie przestrzeni dyskowej pobieranej przez
-rozszerzenia IMAP4 QUOTA.
+Mo¿na pobraæ z serwera IMAP aktualne u¿ycie przestrzeni dyskowej przy
+u¿yciu rozszerzenia IMAP4 QUOTA. Wy¶wietla limity oparte o rozmiar
+i/lub liczbê wiadomo¶ci zgodnie z tym, co poda³ serwer IMAP. Ta
+funkcja pochodzi z wtyczki Quota Usage.
+
+Mo¿na tak¿e pobraæ aktualne u¿ycie przestrzeni dyskowej z uniksowego
+polecenia quota. Wy¶wielta limity oparte o rozmiar i/lub liczbê plików
+zgodnie z tym co poda³o polecenie quota. Ta funkcja pochodzi z wtyczki
+Disk Quota.
 
 %prep
 %setup -q -n %{_plugin}
