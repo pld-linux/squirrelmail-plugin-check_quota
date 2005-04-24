@@ -6,24 +6,24 @@
 Summary:	Check Quota plugin for SquirrelMail
 Summary(pl):	Wtyczka do sprawdzania limitów dyskowych
 Name:		squirrelmail-plugin-%{_plugin}
-Version:	1.3
+Version:	1.4
 Release:	%{mversion}.0.1
 License:	GPL
 Group:		Applications/Mail
 Source0:	http://www.squirrelmail.org/plugins/%{_plugin}-%{version}-%{mversion}.tar.gz
-# Source0-md5:	66c62595cbbae224cf352089ae68923e
+# Source0-md5:	b9b6c50445dc68d29c6af6b9c11e3481
 URL:		http://www.squirrelmail.org/
 Requires:	squirrelmail >= 1.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_plugindir	/home/services/httpd/html/squirrel/plugins/%{_plugin}
+%define		_plugindir %{_datadir}/squirrelmail/plugins/%{_plugin}
 
 %description
 This plugin includes the functionality of two plugins, which are Quota
 Usage plugin and Disk Quota plugin.
 
-It can retrieve the current quota usage from the IMAP server using
-the IMAP4 QUOTA extension. It displays size-based quotas and/or
+It can retrieve the current quota usage from the IMAP server using the
+IMAP4 QUOTA extension. It displays size-based quotas and/or
 message-count quotas, as given by the IMAP server. This function comes
 from Quota Usage plugin.
 
@@ -63,7 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc INSTALL README FAQ TRANSLATING OLDCHANGELOG
-%config(noreplace) %verify(not size mtime md5) %{_plugindir}/config.php
+%config(noreplace) %verify(not md5 mtime size) %{_plugindir}/config.php
 %dir %{_plugindir}
 %{_plugindir}/*.php
 %{_plugindir}/swf
