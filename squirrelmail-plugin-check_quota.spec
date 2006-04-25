@@ -7,17 +7,18 @@ Summary:	Check Quota plugin for SquirrelMail
 Summary(pl):	Wtyczka do sprawdzania limitów dyskowych
 Name:		squirrelmail-plugin-%{_plugin}
 Version:	1.4
-Release:	%{mversion}.0.1
+Release:	1
 License:	GPL
 Group:		Applications/Mail
 Source0:	http://www.squirrelmail.org/plugins/%{_plugin}-%{version}-%{mversion}.tar.gz
 # Source0-md5:	b9b6c50445dc68d29c6af6b9c11e3481
 URL:		http://www.squirrelmail.org/
-Requires:	squirrelmail >= 1.4
+Requires:	squirrelmail >= 1.4.6-1
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_plugindir %{_datadir}/squirrelmail/plugins/%{_plugin}
+%define		_plugindir	%{_datadir}/squirrelmail/plugins/%{_plugin}
+%define		_sysconfdir	/etc/webapps/squirrelmail
 
 %description
 This plugin includes the functionality of two plugins, which are Quota
@@ -52,11 +53,12 @@ Disk Quota.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_plugindir}
+install -d $RPM_BUILD_ROOT%{_plugindir} $RPM_BUILD_ROOT%{_sysconfdir}
 
 install *.php $RPM_BUILD_ROOT%{_plugindir}
 cp -r images swf locale $RPM_BUILD_ROOT%{_plugindir}
-install config.php.sample $RPM_BUILD_ROOT%{_plugindir}/config.php
+mv config.php.sample $RPM_BUILD_ROOT%{_sysconfdir}/check_quota_config.php
+ln -s %{_sysconfdir}/check_quota_config.php $RPM_BUILD_ROOT%{_plugindir}/config.php
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -64,7 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc INSTALL README FAQ TRANSLATING OLDCHANGELOG
-%config(noreplace) %verify(not md5 mtime size) %{_plugindir}/config.php
+%attr(640,root,http) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/check_quota_config.php
 %dir %{_plugindir}
 %{_plugindir}/*.php
 %{_plugindir}/swf
