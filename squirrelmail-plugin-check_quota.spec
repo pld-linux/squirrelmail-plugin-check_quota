@@ -18,7 +18,8 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_plugindir	%{_datadir}/squirrelmail/plugins/%{_plugin}
-%define		_sysconfdir	/etc/webapps/squirrelmail
+%define		_webapps	/etc/webapps
+%define		_sysconfdir	%{_webapps}/squirrelmail
 
 %description
 This plugin includes the functionality of two plugins, which are Quota
