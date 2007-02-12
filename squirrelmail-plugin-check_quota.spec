@@ -4,7 +4,7 @@
 %define		_plugin	check_quota
 %define		mversion	1.2.7
 Summary:	Check Quota plugin for SquirrelMail
-Summary(pl):	Wtyczka do sprawdzania limitów dyskowych
+Summary(pl.UTF-8):   Wtyczka do sprawdzania limitÃ³w dyskowych
 Name:		squirrelmail-plugin-%{_plugin}
 Version:	1.4
 Release:	1
@@ -35,18 +35,18 @@ for UNIX-quota based systems. It displays size-based quotas and/or
 file-count quotas, as retreived from the quota command. This function
 comes from Disk Quota plugin.
 
-%description -l pl
-Wtyczka ³±czy funkcjonalno¶æ dwóch innych wtyczek - Quota Usage i Disk
+%description -l pl.UTF-8
+Wtyczka Å‚Ä…czy funkcjonalnoÅ›Ä‡ dwÃ³ch innych wtyczek - Quota Usage i Disk
 Quota.
 
-Mo¿na pobraæ z serwera IMAP aktualne u¿ycie przestrzeni dyskowej przy
-u¿yciu rozszerzenia IMAP4 QUOTA. Wy¶wietla limity oparte o rozmiar
-i/lub liczbê wiadomo¶ci zgodnie z tym, co poda³ serwer IMAP. Ta
+MoÅ¼na pobraÄ‡ z serwera IMAP aktualne uÅ¼ycie przestrzeni dyskowej przy
+uÅ¼yciu rozszerzenia IMAP4 QUOTA. WyÅ›wietla limity oparte o rozmiar
+i/lub liczbÄ™ wiadomoÅ›ci zgodnie z tym, co podaÅ‚ serwer IMAP. Ta
 funkcja pochodzi z wtyczki Quota Usage.
 
-Mo¿na tak¿e pobraæ aktualne u¿ycie przestrzeni dyskowej z uniksowego
-polecenia quota. Wy¶wielta limity oparte o rozmiar i/lub liczbê plików
-zgodnie z tym co poda³o polecenie quota. Ta funkcja pochodzi z wtyczki
+MoÅ¼na takÅ¼e pobraÄ‡ aktualne uÅ¼ycie przestrzeni dyskowej z uniksowego
+polecenia quota. WyÅ›wielta limity oparte o rozmiar i/lub liczbÄ™ plikÃ³w
+zgodnie z tym co podaÅ‚o polecenie quota. Ta funkcja pochodzi z wtyczki
 Disk Quota.
 
 %prep
