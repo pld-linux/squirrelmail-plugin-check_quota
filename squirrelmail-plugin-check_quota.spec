@@ -4,7 +4,7 @@
 %define		_plugin	check_quota
 %define		mversion	1.2.7
 Summary:	Check Quota plugin for SquirrelMail
-Summary(pl.UTF-8):   Wtyczka do sprawdzania limitów dyskowych
+Summary(pl.UTF-8):	Wtyczka do sprawdzania limitów dyskowych
 Name:		squirrelmail-plugin-%{_plugin}
 Version:	1.4
 Release:	1
