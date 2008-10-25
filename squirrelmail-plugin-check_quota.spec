@@ -1,17 +1,16 @@
 # TODO:
 # - check dir
-# - separate locales
 %define		_plugin	check_quota
-%define		mversion	1.2.7
+%define		mversion	1.4.0
 Summary:	Check Quota plugin for SquirrelMail
 Summary(pl.UTF-8):	Wtyczka do sprawdzania limitów dyskowych
 Name:		squirrelmail-plugin-%{_plugin}
-Version:	1.4
+Version:	2.2
 Release:	1
 License:	GPL
 Group:		Applications/Mail
 Source0:	http://www.squirrelmail.org/plugins/%{_plugin}-%{version}-%{mversion}.tar.gz
-# Source0-md5:	b9b6c50445dc68d29c6af6b9c11e3481
+# Source0-md5:	aa26b781559680ba91e7398c01e2f248
 URL:		http://www.squirrelmail.org/plugin_view.php?id=237
 Requires:	squirrelmail >= 1.4.6-1
 BuildArch:	noarch
@@ -57,8 +56,8 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_plugindir} $RPM_BUILD_ROOT%{_sysconfdir}
 
 install *.php $RPM_BUILD_ROOT%{_plugindir}
-cp -r images swf locale $RPM_BUILD_ROOT%{_plugindir}
-mv config.php.sample $RPM_BUILD_ROOT%{_sysconfdir}/check_quota_config.php
+cp -r images swf templates themes $RPM_BUILD_ROOT%{_plugindir}
+mv config.sample.php $RPM_BUILD_ROOT%{_sysconfdir}/check_quota_config.php
 ln -s %{_sysconfdir}/check_quota_config.php $RPM_BUILD_ROOT%{_plugindir}/config.php
 
 %clean
@@ -66,10 +65,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc INSTALL README FAQ TRANSLATING OLDCHANGELOG
+%doc INSTALL README FAQ TRANSLATING CHANGELOG
 %attr(640,root,http) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/check_quota_config.php
 %dir %{_plugindir}
 %{_plugindir}/*.php
 %{_plugindir}/swf
-%{_plugindir}/locale
 %{_plugindir}/images
+%{_plugindir}/templates
+%{_plugindir}/themes
