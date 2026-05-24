@@ -6,7 +6,7 @@ Summary:	Check Quota plugin for SquirrelMail
 Summary(pl.UTF-8):	Wtyczka do sprawdzania limitów dyskowych
 Name:		squirrelmail-plugin-%{_plugin}
 Version:	2.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Mail
 Source0:	http://www.squirrelmail.org/plugins/%{_plugin}-%{version}-%{mversion}.tar.gz
